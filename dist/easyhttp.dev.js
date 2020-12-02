@@ -56,6 +56,38 @@ function () {
         });
       });
     }
+  }, {
+    key: "put",
+    value: function put(url, data) {
+      return new Promise(function (resolve, reject) {
+        fetch(url, {
+          method: 'PUT',
+          headers: {
+            'Content-type': 'application/json'
+          },
+          body: JSON.stringify(data)
+        }).then(function (res) {
+          return res.json();
+        }).then(function (data) {
+          return resolve(data);
+        })["catch"](function (err) {
+          return reject(err);
+        });
+      });
+    }
+  }, {
+    key: "delete",
+    value: function _delete(url) {
+      return new Promise(function (resolve, reject) {
+        fetch(url).then(function (res) {
+          return res.json();
+        }).then(function (data) {
+          return resolve('Resource deleted...');
+        })["catch"](function (err) {
+          return reject(err);
+        });
+      });
+    }
   }]);
 
   return EasyHTTP;
