@@ -1,46 +1,17 @@
-const http = new easyHttp();
+const http = new EasyHTTP();
+
+// http.get('https://jsonplaceholder.typicode.com/users')
+//     .then(data => console.log(data))
+//     .catch(err => console.log(err));
+// .then(data => console.log(data))
 
 const data = {
-    title: 'Custom Post',
-    body: 'This is a custom post about AJAX  with fake data',
+    name: 'Bolaji Ola',
+    username: 'BojOla',
+    email: 'afeezbolajiola@gmail.com',
 };
 
-// http.post('https://jsonplaceholder.typicode.com/posts', data, function(
-//     error,
-//     posts
-// ) {
-//     if (error) {
-//         console.error(error);
-//     } else {
-//         console.log(posts);
-//     }
-// });
-// http.get('https://jsonplaceholder.typicode.com/posts', function(err, post) {
-//     if (err) {
-//         console.error(err);
-//     } else {
-//         console.log(post);
-//     }
-// });
-
-// http.put('https://jsonplaceholder.typicode.com/posts/1', data, function(
-//     error,
-//     posts
-// ) {
-//     if (error) {
-//         console.error(error);
-//     } else {
-//         console.log(posts);
-//     }
-// });
-
-http.delete('https://jsonplaceholder.typicode.com/posts/1', function(
-    err,
-    response
-) {
-    if (err) {
-        console.error(err);
-    } else {
-        console.log(response);
-    }
-});
+http
+    .post('https://jsonplaceholder.typicode.com/users', data)
+    .then(data => console.log(data))
+    .catch(err => console.log(err));

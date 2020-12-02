@@ -1,41 +1,17 @@
 "use strict";
 
-var http = new easyHttp();
-var data = {
-  title: 'Custom Post',
-  body: 'This is a custom post about AJAX  with fake data'
-}; // http.post('https://jsonplaceholder.typicode.com/posts', data, function(
-//     error,
-//     posts
-// ) {
-//     if (error) {
-//         console.error(error);
-//     } else {
-//         console.log(posts);
-//     }
-// });
-// http.get('https://jsonplaceholder.typicode.com/posts', function(err, post) {
-//     if (err) {
-//         console.error(err);
-//     } else {
-//         console.log(post);
-//     }
-// });
-// http.put('https://jsonplaceholder.typicode.com/posts/1', data, function(
-//     error,
-//     posts
-// ) {
-//     if (error) {
-//         console.error(error);
-//     } else {
-//         console.log(posts);
-//     }
-// });
+var http = new EasyHTTP(); // http.get('https://jsonplaceholder.typicode.com/users')
+//     .then(data => console.log(data))
+//     .catch(err => console.log(err));
+// .then(data => console.log(data))
 
-http["delete"]('https://jsonplaceholder.typicode.com/posts/1', function (err, response) {
-  if (err) {
-    console.error(err);
-  } else {
-    console.log(response);
-  }
+var data = {
+  name: 'Bolaji Ola',
+  username: 'BojOla',
+  email: 'afeezbolajiola@gmail.com'
+};
+http.post('https://jsonplaceholder.typicode.com/users', data).then(function (data) {
+  return console.log(data);
+})["catch"](function (err) {
+  return console.log(err);
 });
