@@ -27,14 +27,28 @@ function () {
   _createClass(EasyHTTP, [{
     key: "get",
     value: function get(url) {
-      return new Promise(function (resolve, reject) {
-        fetch(url).then(function (res) {
-          return res.json();
-        }).then(function (data) {
-          return resolve(data);
-        })["catch"](function (err) {
-          return reject(err);
-        });
+      var response, resData;
+      return regeneratorRuntime.async(function get$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.next = 2;
+              return regeneratorRuntime.awrap(fetch(url));
+
+            case 2:
+              response = _context.sent;
+              _context.next = 5;
+              return regeneratorRuntime.awrap(response.json());
+
+            case 5:
+              resData = _context.sent;
+              return _context.abrupt("return", resData);
+
+            case 7:
+            case "end":
+              return _context.stop();
+          }
+        }
       });
     }
   }, {

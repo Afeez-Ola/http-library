@@ -11,13 +11,11 @@
  **/
 
 class EasyHTTP {
-    get(url) {
-        return new Promise((resolve, reject) => {
-            fetch(url)
-                .then(res => res.json())
-                .then(data => resolve(data))
-                .catch(err => reject(err));
-        });
+    async get(url) {
+        const response = await fetch(url);
+
+        const resData = await response.json();
+        return resData;
     }
 
     post(url, data) {
@@ -35,7 +33,6 @@ class EasyHTTP {
                 .catch(err => reject(err));
         });
     }
-
 
     put(url, data) {
         return new Promise((resolve, reject) => {
