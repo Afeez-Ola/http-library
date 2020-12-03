@@ -54,52 +54,94 @@ function () {
   }, {
     key: "post",
     value: function post(url, data) {
-      return new Promise(function (resolve, reject) {
-        fetch(url, {
-          method: 'POST',
-          headers: {
-            'Content-type': 'application/json'
-          },
-          body: JSON.stringify(data)
-        }).then(function (res) {
-          return res.json();
-        }).then(function (data) {
-          return resolve(data);
-        })["catch"](function (err) {
-          return reject(err);
-        });
+      var response, resData;
+      return regeneratorRuntime.async(function post$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              _context2.next = 2;
+              return regeneratorRuntime.awrap(fetch(url, {
+                method: 'POST',
+                headers: {
+                  'Content-type': 'application/json'
+                },
+                body: JSON.stringify(data)
+              }));
+
+            case 2:
+              response = _context2.sent;
+              _context2.next = 5;
+              return regeneratorRuntime.awrap(response.json());
+
+            case 5:
+              resData = _context2.sent;
+              return _context2.abrupt("return", resData);
+
+            case 7:
+            case "end":
+              return _context2.stop();
+          }
+        }
       });
     }
   }, {
     key: "put",
     value: function put(url, data) {
-      return new Promise(function (resolve, reject) {
-        fetch(url, {
-          method: 'PUT',
-          headers: {
-            'Content-type': 'application/json'
-          },
-          body: JSON.stringify(data)
-        }).then(function (res) {
-          return res.json();
-        }).then(function (data) {
-          return resolve(data);
-        })["catch"](function (err) {
-          return reject(err);
-        });
+      var response, resData;
+      return regeneratorRuntime.async(function put$(_context3) {
+        while (1) {
+          switch (_context3.prev = _context3.next) {
+            case 0:
+              _context3.next = 2;
+              return regeneratorRuntime.awrap(fetch(url, {
+                method: 'PUT',
+                headers: {
+                  'Content-type': 'application/json'
+                },
+                body: JSON.stringify(data)
+              }));
+
+            case 2:
+              response = _context3.sent;
+              _context3.next = 5;
+              return regeneratorRuntime.awrap(response.json());
+
+            case 5:
+              resData = _context3.sent;
+              return _context3.abrupt("return", resData);
+
+            case 7:
+            case "end":
+              return _context3.stop();
+          }
+        }
       });
     }
   }, {
     key: "delete",
     value: function _delete(url) {
-      return new Promise(function (resolve, reject) {
-        fetch(url).then(function (res) {
-          return res.json();
-        }).then(function (data) {
-          return resolve('Resource deleted...');
-        })["catch"](function (err) {
-          return reject(err);
-        });
+      var response, resData;
+      return regeneratorRuntime.async(function _delete$(_context4) {
+        while (1) {
+          switch (_context4.prev = _context4.next) {
+            case 0:
+              _context4.next = 2;
+              return regeneratorRuntime.awrap(fetch(url));
+
+            case 2:
+              response = _context4.sent;
+              _context4.next = 5;
+              return regeneratorRuntime.awrap('resource deleted...');
+
+            case 5:
+              resData = _context4.sent;
+              return _context4.abrupt("return", resData);
+
+            case 7:
+            case "end":
+              return _context4.stop();
+          }
+        }
       });
     }
   }]);
